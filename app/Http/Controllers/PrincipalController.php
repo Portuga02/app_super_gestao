@@ -8,6 +8,6 @@ class PrincipalController extends Controller
 {
     public function principal()
     {
-        echo "Chamando o laravel pela rota principal atualizada";
+        return view('site.principal');
     }
 }
