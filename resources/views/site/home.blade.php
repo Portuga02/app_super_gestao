@@ -1,4 +1,8 @@
 @extends('site.layouts.basico')
+
+@section('titulo', $tituloHome)
+
+
 @section('conteudo')
     <div class="topo">
 
@@ -75,13 +79,3 @@
         </div>
     </div>
 @endsection
-<?php
-
-$tioTuga = 'ArrumarJapinha';
-
-if ($tioTuga) {
-    echo 'Tio arrumou japinha felzi da vida';
-} elseif (!$tioTuga) {
-    echo 'Sem framework PHP para minha sobrinha';
-}
-?>

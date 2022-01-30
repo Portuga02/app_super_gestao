@@ -2,14 +2,14 @@
 <html lang="pt-br">
 
 <head>
-    <title>Super Gestão - Sobre Nós</title>
+    <title>Super Gestão - @yield('titulo')</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ asset('css/estilo_basico.css') }}">
 </head>
 
 <body>
     {{-- o yield é utilizado para chamar  o conteudo da pagina anterior para nova pagina --}}
-@yield('conteudo')  
+    @yield('conteudo')
 </body>
 
 </html>
