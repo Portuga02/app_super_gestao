@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <title>Super Gestão - Sobre Nós</title>
-    <meta charset="utf-8">
-
-    <link rel="stylesheet" href="{{ asset('css/estilo_basico.css') }}" >
-</head>
-
-<body>
+@extends('site.layouts.basico')
+@section('conteudo')
     <div class="topo">
 
         <div class="logo">
@@ -19,10 +10,10 @@
 
             <ul>
                 <li>
-                    <a href="{{ route('site.principal') }}">Home</a>
+                    <a href="{{ route('site.Home') }}">Home</a>
                 </li>
                 <li>
-                    <a href="{{ route('site.sobrenos') }}">Sobre nós</a>
+                    <a href="{{ route('site.sobre-nos') }}">Sobre nós</a>
                 </li>
                 <li>
                     <a href="{{ route('site.contatos') }}">Contato</a>
@@ -83,6 +74,14 @@
             </div>
         </div>
     </div>
-</body>
+@endsection
+<?php
 
-</html>
+$tioTuga = 'ArrumarJapinha';
+
+if ($tioTuga) {
+    echo 'Tio arrumou japinha felzi da vida';
+} elseif (!$tioTuga) {
+    echo 'Sem framework PHP para minha sobrinha';
+}
+?>
