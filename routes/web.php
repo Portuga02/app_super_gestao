@@ -17,13 +17,13 @@ Route::get('/', function () {
     return 'Olá agoora vaiu';
 });
 
-//Route::get('/','PrincipalController@principal'); // utilizado nas versões 7x e antes
+//Route::get('/','HomeController@Home'); // utilizado nas versões 7x e antes
 
-Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.principal'); // utilizado nas verssões 8x do laravel 
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'Home'])->name('site.Home'); // utilizado nas verssões 8x do laravel 
 
 Route::get('/contatos', [\App\Http\Controllers\ContatosController::class, 'contatos'])->name('site.contatos');
 
-Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
+Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('site.sobre-nos');
 
 
 //Route::get('/login', function(){return 'Login';})->name('site.login');
@@ -38,6 +38,7 @@ Route::prefix('/app')->group(function () {
     Route::get('/fornecedores', function () {
         return 'Fornecedores';
     })->name('app.fornecedores');
+
     Route::get('/produtos', function () {
         return 'produtos';
     })->name('app.produtos');
