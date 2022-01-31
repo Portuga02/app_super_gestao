@@ -8,8 +8,10 @@
 </head>
 
 <body>
+    @include('site.layouts._partials.topo')
     {{-- o yield é utilizado para chamar  o conteudo da pagina anterior para nova pagina --}}
     @yield('conteudo')
+  
 </body>
 
 </html>
