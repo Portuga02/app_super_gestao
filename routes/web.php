@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'Home'])->name('site.Home'); // utilizado nas verssões 8x do laravel 
 
 Route::get('/contatos', [\App\Http\Controllers\ContatosController::class, 'contatos'])->name('site.contatos');
+Route::post('/contatos', [\App\Http\Controllers\ContatosController::class, 'contatos'])->name('site.contatos');
 
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('site.sobre-nos');
 
