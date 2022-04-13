@@ -17,13 +17,13 @@ class CreateProdutoDetalhesTable extends Migration
             //COLUNAS
             $table->id();
             $table->unsignedBigInteger('produto_id');  // PARA CHAVE ESTRAGEIRA
-            $table->float('largura',8,2);
-            $table->float('altura',8,2);
+            $table->float('largura', 8, 2);
+            $table->float('altura', 8, 2);
             $table->timestamps();
 
             // CONSTRAINTS
 
-            $table->foreign('produto_id')->references('id')->on('produtos')  ; // forma que se usa para criar uma relação entre tabelas
+            $table->foreign('produto_id')->references('id')->on('produtos'); // forma que se usa para criar uma relação entre tabelas
             $table->unique('produto_id'); // adicionado quando for RELACIONAMENTO DE 1:1
         });
     }
