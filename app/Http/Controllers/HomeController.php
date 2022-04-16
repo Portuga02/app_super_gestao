@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function Home()
     {
-        return view('site.Home', ['tituloHome' => 'Home']);
+        return view('site.home', ['tituloHome' => 'Home']);
     }
 }
+
