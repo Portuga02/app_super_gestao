@@ -1,7 +1,6 @@
 @extends('site.layouts.basico')
 @section('titulo', $tituloContato)
 @section('conteudo')
-  
 
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
@@ -11,7 +10,6 @@
         <div class="informacao-pagina">
             <div class="contato-Home">
                 @component('site.layouts._components.form')
-                    
                 @endcomponent
             </div>
         </div>
