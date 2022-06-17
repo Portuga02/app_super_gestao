@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'Olá agoora vaiu';
+    return 'Olá agora vai'; // ajuste função anoninma
 });
 
 //Route::get('/','HomeController@Home'); // utilizado nas versões 7x e antes
