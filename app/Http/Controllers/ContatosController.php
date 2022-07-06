@@ -13,7 +13,7 @@ class ContatosController extends Controller
         try {
             $contato = new SiteContato();
             $contato->create($request->all());
-  return view('site.contato', ['tituloContato' => 'Contato']);
+            return view('site.contato', ['tituloContato' => 'Contato']);
         } catch (\Throwable $e) {
             return response()->json([
                 'info' => 'error',
