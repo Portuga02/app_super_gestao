@@ -9,7 +9,7 @@
 
         <div class="informacao-pagina">
             <div class="contato-Home">
-                @component('site.layouts._components.form')
+                @component('site.layouts._components.form_contato')
                 @endcomponent
             </div>
         </div>
