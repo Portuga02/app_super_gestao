@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\ContatosController;
+use \App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,18 +20,16 @@ Route::get('/', function () {
 
 //Route::get('/','HomeController@Home'); // utilizado nas versões 7x e antes
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'Home'])->name('site.Home'); // utilizado nas verssões 8x do laravel 
+Route::get('/', [HomeController::class, 'Home'])->name('site.Home'); // utilizado nas verssões 8x do laravel 
 
-Route::get('/contatos', [\App\Http\Controllers\ContatosController::class, 'contatos'])->name('site.contatos');
-Route::post('/contatos', [\App\Http\Controllers\ContatosController::class, 'contatos'])->name('site.contatos');
-
-Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('site.sobre-nos');
-
+Route::get('/contatos', [ContatosController::class, 'contatos'])->name('site.contatos');
+Route::post('/contatos', [ContatosController::class, 'salvar'])->name('site.contatos');
+Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobre-nos');
 
 //Route::get('/login', function(){return 'Login';})->name('site.login');
 
 Route::prefix('/app')->group(function () {
-    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('site.login');
+    Route::get('/login', [LoginController::class, 'login'])->name('site.login');
     Route::get('/clientes', function () {
         return 'Clientes';
     })->name('app.clientes');
