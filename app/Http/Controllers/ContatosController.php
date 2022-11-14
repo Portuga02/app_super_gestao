@@ -24,9 +24,9 @@ class ContatosController extends Controller
 
         if (!empty($request)) {
             $request->validate([
-                'nome' => 'required',
+                'nome' => 'required|min:3|max:40',
                 'telefone' => 'required',
-                'email' => 'required',
+                'email' => 'email',
                 'motivo_contato' => 'required'
                 
             ]);
