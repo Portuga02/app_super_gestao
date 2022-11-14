@@ -12,7 +12,7 @@ class ContatosController extends Controller
     public function contatos(Request $request)
     {
         try {
-            
+
             $motivo_contatos = MotivoContato::all();
             return view('site.contato', ['tituloContato' => 'Contato', 'motivo_contatos' => $motivo_contatos]);
         } catch (\Throwable $th) {
@@ -28,7 +28,10 @@ class ContatosController extends Controller
                 'telefone' => 'required',
                 'email' => 'required',
                 'motivo_contato' => 'required'
+                
             ]);
+            SiteContato::create($request->all());
+            return redirect()->route('');
         }
     }
 }
