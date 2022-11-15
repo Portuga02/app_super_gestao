@@ -27,26 +27,20 @@ class ContatosController extends Controller
     }
     public function salvar(Request $request)
     {
-        try {
-            if (!empty($request)) {
-                $request->validate([
-                    'nome' => 'required|min:3|max:40',
-                    'telefone' => 'required',
-                    'email' => 'email|unique:site_contatos',
-                    'motivo_contatos_id' => 'required',
-                    'mensagem' => 'required|max:2000'
 
-                ]);
-                SiteContato::create($request->all());
-                return redirect()->route('site.Home');
-            }
-        } catch (\Exception $e) {
-            return response()->json([
-                'info' => 'error',
-                'error' => $e->getMessage(),
-                'Linha' => $e->getLine(),
-                'Arquivo' => $e->getFile()
-            ], Response::HTTP_BAD_REQUEST);
+        if (!empty($request)) {
+            $request->validate([
+                'nome' => 'required|min:3|max:40',
+                'telefone' => 'required',
+                'email' => 'email|unique:site_contatos',
+                'motivo_contatos_id' => 'required',
+                'mensagem' => 'required|max:2000'
+
+            ]);
+            SiteContato::create($request->all());
+            return redirect()->route('site.Home');
+        } else {
+            return 'error';
         }
     }
 }
