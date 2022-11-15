@@ -27,8 +27,12 @@
         <br>
         <button type="submit" class="borda-preta">ENVIAR</button>
     </form>
-    <div style="position: absolute; top:0px; left:0px; width:100%; background:rgb(230, 185, 185);">
-        <pre>
-            {{ print_r($errors) }}
-        </pre>
-    </div>
+    @if ($errors->any())
+        <div style="position: center; top:0px; left:0px; width:100%; background:rgb(230, 185, 185);">
+
+            @foreach ($errors->all() as $erro)
+                {{ $erro }} <br>
+            @endforeach
+           
+        </div>
+    @endif
