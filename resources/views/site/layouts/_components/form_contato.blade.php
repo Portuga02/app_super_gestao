@@ -31,14 +31,16 @@
             {{ $errors->first('motivo_contatos_id') }}
         @endif
         <br>
+
         <textarea name="mensagem" class="borda-preta" placeholder="digite aqui sua mensagem"> 
            
-             {{ old('mensagem') != '' ? old('mensagem') != '' : 'Preencha aqui aua mensagem' }} 
+             {{ old('mensagem') != '' ? old('mensagem') != '' : 'Preencha aqui sua mensagem' }} 
                 
-    </textarea>
+       </textarea>
         @if ($errors->has('mensagem'))
             {{ $errors->first('mensagem') }}
         @endif
+
         <br>
         <button type="submit" class="borda-preta">ENVIAR</button>
     </form>
