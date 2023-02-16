@@ -34,7 +34,6 @@ Route::prefix('/app')->group(function () {
         return 'Clientes';
     })->name('app.clientes');
 
-
     Route::get('/fornecedores', function () {
         return 'Fornecedores';
     })->name('app.fornecedores');
