@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ContatosController;
 use \App\Http\Controllers\HomeController;
+use App\Http\Middleware\LogAcessoMiddleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,9 @@ Route::get('/', function () {
 
 //Route::get('/','HomeController@Home'); // utilizado nas versões 7x e antes
 
-Route::get('/', [HomeController::class, 'Home'])->name('site.Home'); // utilizado nas verssões 8x do laravel 
+Route::get('/', [HomeController::class, 'Home'])
+->name('site.Home')
+->middleware(LogAcessoMiddleware::class); // utilizado nas verssões 8x do laravel 
 
 Route::get('/contatos', [ContatosController::class, 'contatos'])->name('site.contatos');
 Route::post('/contatos', [ContatosController::class, 'salvar'])->name('site.contatos');
