@@ -5,17 +5,6 @@ use \App\Http\Controllers\ContatosController;
 use \App\Http\Controllers\HomeController;
 use App\Http\Middleware\LogAcessoMiddleware;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return 'Olá agora vai'; // ajuste função anoninma
 });
@@ -23,8 +12,8 @@ Route::get('/', function () {
 //Route::get('/','HomeController@Home'); // utilizado nas versões 7x e antes
 
 Route::get('/', [HomeController::class, 'Home'])
-->name('site.Home')
-->middleware(LogAcessoMiddleware::class); // utilizado nas verssões 8x do laravel 
+    ->name('site.Home')
+    ->middleware(LogAcessoMiddleware::class); // utilizado nas verssões 8x do laravel 
 
 Route::get('/contatos', [ContatosController::class, 'contatos'])->name('site.contatos');
 Route::post('/contatos', [ContatosController::class, 'salvar'])->name('site.contatos');
