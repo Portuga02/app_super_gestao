@@ -17,6 +17,6 @@ class LogAcesso
     public function handle(Request $request, Closure $next)
     {
         return $next($request);
-        // return Response(' Interceptando com Middleware')
+        return Response(' Interceptando com Middleware');
     }
 }
