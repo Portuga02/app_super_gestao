@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\ContatosController;
-use \App\Http\Controllers\HomeController;
-use \App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\ContatosController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SobreNosController;
 use App\Http\Middleware\LogAcessoMiddleware;
 
 Route::get('/', function () {
@@ -14,11 +14,11 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'Home'])
     ->name('site.Home')
-    ->middleware(LogAcessoMiddleware::class); // utilizado nas verssões 8x do laravel 
+    ->middleware(LogAcessoMiddleware::class); // utilizado nas verssões 8x do laravel
 
 Route::get('/contatos', [ContatosController::class, 'contatos'])->name('site.contatos');
 Route::post('/contatos', [ContatosController::class, 'salvar'])->name('site.contatos');
-Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobre-nos');
+Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobre-nos')->middleware(LogAcessoMiddleware::class);
 
 //Route::get('/login', function(){return 'Login';})->name('site.login');
 
@@ -44,7 +44,7 @@ Route::get('/rota2', function () {
     return redirect()->route('site.rota1');
 })->name('site.rota2');
 
-// Rote::redirect('/rota2', '/rota1');  
+// Rote::redirect('/rota2', '/rota1');
 Route::fallback(function () {
     echo 'A rota acessada não existe. <a href="' . route('site.index') . '">clique aqui</a> para ir para página inicial';
 });

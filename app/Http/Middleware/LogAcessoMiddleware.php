@@ -4,18 +4,32 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Models\LogAcesso;
 
 class LogAcessoMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);  // empurra a requisição para frente
+        try {
+            
+
+            if($ifAcessor  <> $ifAcessor !== null) {
+                $ipAcessor = $request->server->get('REMOTE_ADDR');
+                $rotaQueAcessou = $request->getRequestUri();
+                LogAcesso::create(['log' => "O ip [$ipAcessor] Mandando dados $rotaQueAcessou"]);
+            } else{
+                return Response('Chegamos na Middleware');
+            }
+
+
+        } catch (\Throwable $th) {
+           throw $th;
+
+        }
+        
+       }
+
+        // return $next($request);  // empurra a requisição para frente
+
     }
 }
