@@ -13,13 +13,13 @@ class LogAcessoMiddleware
         try {
             
 
-            if($ifAcessor  <> $ifAcessor !== null) {
+          
                 $ipAcessor = $request->server->get('REMOTE_ADDR');
                 $rotaQueAcessou = $request->getRequestUri();
                 LogAcesso::create(['log' => "O ip [$ipAcessor] Mandando dados $rotaQueAcessou"]);
-            } else{
+            
                 return Response('Chegamos na Middleware');
-            }
+           
 
 
         } catch (\Throwable $th) {
@@ -32,4 +32,4 @@ class LogAcessoMiddleware
         // return $next($request);  // empurra a requisição para frente
 
     }
-}
+
