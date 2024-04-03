@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class SobreNosController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(Middleware::class);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(Middleware::class);
+    // }
     public function sobreNos()
     {
         return view('site.sobre-nos', ['tituloSobreNos' => 'Sobre Nós']);
