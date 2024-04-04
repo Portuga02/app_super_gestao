@@ -11,25 +11,24 @@ class LogAcessoMiddleware
     public function handle(Request $request, Closure $next)
     {
         try {
-            
 
-          
-                $ipAcessor = $request->server->get('REMOTE_ADDR');
-                $rotaQueAcessou = $request->getRequestUri();
-                LogAcesso::create(['log' => "O ip [$ipAcessor] Mandando dados $rotaQueAcessou"]);
-            
-                return Response('Chegamos na Middleware');
-           
+
+
+            $ipAcessor = $request->server->get('REMOTE_ADDR');
+            $rotaQueAcessou = $request->getRequestUri();
+            LogAcesso::create(['log' => "O ip [$ipAcessor] Mandando dados $rotaQueAcessou"]);
+
+            return $next($request);  // empurra a requisição para frente
+
 
 
         } catch (\Throwable $th) {
-           throw $th;
+            throw $th;
 
         }
-        
-       }
-
-        // return $next($request);  // empurra a requisição para frente
 
     }
 
+
+
+}
