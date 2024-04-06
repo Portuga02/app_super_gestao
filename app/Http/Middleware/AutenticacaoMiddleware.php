@@ -17,7 +17,7 @@ class AutenticacaoMiddleware
     public function handle(Request $request, Closure $next, $metodo_auteticacao, $perfil_acesso)
     {
 
-
+//
         switch ($metodo_auteticacao) {
             case 'DBASQL':
                 echo "O metodo de autenticação".$metodo_auteticaco." padrão para o sistema é o metodo PADRAO DBASQL"."o perfil logado é ".$perfil_acesso;
