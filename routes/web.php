@@ -33,7 +33,7 @@ Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.so
 // });
 
 Route::get('/login', [LoginController::class, 'login'])->name('site.login');
-Route::get('/login', [LoginController::class, 'autenticar'])->name('site.login');
+Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login');
 
 Route::get('/clientes', function () {return 'Clientes'; })->name('app.clientes');
 Route::get('/fornecedores', function () {return 'Fornecedores';})->name('app.fornecedores');
