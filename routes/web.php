@@ -24,12 +24,20 @@ Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.so
 
 //Route::get('/login', function(){return 'Login';})->name('site.login');
 
-Route::middleware('autenticacao:ldap,adm')->prefix('/app')->group(function () {
-    Route::get('/login', [LoginController::class, 'login'])->name('site.login');
-    Route::get('/clientes', function () {return 'Clientes'; })->name('app.clientes');
-    Route::get('/fornecedores', function () {return 'Fornecedores';})->name('app.fornecedores');
-    Route::get('/produtos', function () {return 'produtos'; })->name('app.produtos');
-});
+
+// Route::middleware('autenticacao:adm')->prefix('/app')->group(function () {
+//     Route::get('/login', [LoginController::class, 'login'])->name('site.login');
+//     Route::get('/clientes', function () {return 'Clientes'; })->name('app.clientes');
+//     Route::get('/fornecedores', function () {return 'Fornecedores';})->name('app.fornecedores');
+//     Route::get('/produtos', function () {return 'produtos'; })->name('app.produtos');
+// });
+
+Route::get('/login', [LoginController::class, 'login'])->name('site.login');
+Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login');
+
+Route::get('/clientes', function () {return 'Clientes'; })->name('app.clientes');
+Route::get('/fornecedores', function () {return 'Fornecedores';})->name('app.fornecedores');
+Route::get('/produtos', function () {return 'produtos'; })->name('app.produtos');
 
 
 Route::get('/rota1', function () {
@@ -42,5 +50,5 @@ Route::get('/rota2', function () {
 
 // Rote::redirect('/rota2', '/rota1');
 Route::fallback(function () {
-    echo 'A rota acessada não existe. <a href="' . route('site.index') . '">clique aqui</a> para ir para página inicial';
+    echo 'A rota acessada não existe. <a href="' . route('site.login') . '">clique aqui</a> para ir para página inicial';
 });
