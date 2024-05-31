@@ -16,8 +16,8 @@ class LoginController extends Controller
         $regras = ['usuario' => 'email',
         'senha' => 'required'];
 
-        $feedback = ['usuario.email'=>'O campo de usuário (email)  ´obrigatorio',
-        'senha.required'=> 'o campo senha é obrigatório'];
+        $feedback = ['usuario.email' => 'O campo de usuário (email)  ´obrigatorio',
+        'senha.required' => 'o campo senha é obrigatório'];
 
     }
 }
